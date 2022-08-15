@@ -10,7 +10,7 @@ import { ProductModelServer, ServerResponse } from '../models/product.model';
 })
 
 export class ProductService {
-  private SERVER_URL = environment.SERVER_URL
+  private serverUrl = environment.SERVER_URL
   constructor(
     private router: Router,
     // Communicating with backend services using HTTP
@@ -19,7 +19,7 @@ export class ProductService {
 
   //fetch all products from backend
   getAllProducts(productsFetched = 10):Observable<ServerResponse>{
-    return this.http.get<ServerResponse>(this.SERVER_URL + '/products', {
+    return this.http.get<ServerResponse>(this.serverUrl + '/products', {
       params: {
         limit: productsFetched.toString()
       }
@@ -29,12 +29,12 @@ export class ProductService {
 //get a single product from server
 
   getproduct(id: number): Observable<ProductModelServer>{
-    return this.http.get<ProductModelServer>(this.SERVER_URL + '/product' + id)
+    return this.http.get<ProductModelServer>(this.serverUrl + '/product' + id)
   }
 
   //get products from one category
   getProductFromCategory( catName: string): Observable<ProductModelServer[]>{
-    return this.http.get<ProductModelServer[]>(this.SERVER_URL + './products/category/' + catName);
+    return this.http.get<ProductModelServer[]>(this.serverUrl + './products/category/' + catName);
 
   }
 
