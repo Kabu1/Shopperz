@@ -4,7 +4,7 @@ export interface CartModelServer {
   //
   total: number;
   data: [{
-    product: ProductModelServer,
+    product?: ProductModelServer,
     numIncart: number
   }]
 }

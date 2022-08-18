@@ -3,7 +3,7 @@ export interface ProductModelServer{
   name: string;
   category: string;
   description: string;
-  price: number;
+  price?: number;
   quantity: number;
   images: string;
   image: string;

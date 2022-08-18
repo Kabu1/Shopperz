@@ -15,7 +15,7 @@ export class OrderService {
 
     getSingleORder(orderId: number){
       return this.http.get<ProductResponseModel[]>(
-        this.serverUrl + './orders' + orderId).toPromise();
+        this.serverUrl + './orders/' + orderId).toPromise();
         //toPromise converts an observable to a promise.
     }
 
