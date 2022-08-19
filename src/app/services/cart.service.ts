@@ -62,7 +62,6 @@ private cartDataClient: CartModelPublic = {
 // JSON.parse() requires a string,
 // so you should test the result of localStorage.getItem() before you try to use it.
     let info: CartModelPublic = JSON.parse(localStorage.getItem('cart') || '{}');
-    console.log('products 11', info);
 
     //check if the info variable is null or has data
     // Use the JavaScript function JSON.parse() to convert text into a JavaScript object:
@@ -76,7 +75,6 @@ private cartDataClient: CartModelPublic = {
       this.cartDataClient?.prodData?.forEach(p => {
         this.productService.getProduct(p.id).subscribe((actualProductInfo: ProductModelServer) =>
         {
-          console.log('products', actualProductInfo);
           if(this.cartDataFront.data[0].numIncart === 0){
             this.cartDataFront.data[0].numIncart = p.inCart;
             this.cartDataFront.data[0].product = actualProductInfo;
@@ -122,16 +120,12 @@ private cartDataClient: CartModelPublic = {
           if(this.cartDataFront.data[0].product === undefined){
             this.cartDataFront.data[0].product = prod;
             this.cartDataFront.data[0].numIncart = quantity !== undefined ? quantity: 1;
-            console.log('are we here 111');
             this.calculateTotal();
             this.cartDataClient.total = this.cartDataFront.total;
-            console.log('are we here 333', this.cartDataClient.total);
 
             //TODO calculate total amount
             this.cartDataClient.prodData[0].inCart = this.cartDataFront?.data[0]?.numIncart;
-            console.log('are we here fhfhfhf 2222');
 
-            console.log('cart',this.cartDataClient.prodData[0].inCart);
             this.cartDataClient.prodData[0].id = prod.id;
             this.cartDataClient.total = this.cartDataFront.total;
             localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
@@ -167,7 +161,6 @@ private cartDataClient: CartModelPublic = {
                     progressAnimation: 'increasing',
                     positionClass: 'toast-top-right'
                   });
-                  console.log('are we here fhfhfhf');
               }else{
                   //if the item is not in the cart
                   this.cartDataFront.data.push({
@@ -178,7 +171,6 @@ private cartDataClient: CartModelPublic = {
                     inCart: 1,
                     id: prod.id
                   });
-                  console.log('are we here');
                   localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
                   this.toast.success(`${prod.name} added to the cart`, 'Product Added', {
                     timeOut: 1500,

@@ -8,7 +8,6 @@ const {database} = require('../config/helpers')
 router.get('/', function(req, res) {
   let page = (req.query.page != undefined && req.query.page != 0) ? req.query.page : 1; //set the current page number
   const limit = (req.query.limit != undefined && req.query.limit != 0)? req.query.limit: 12; //set the limit of items per page
-  console.log('check the limit', limit);
 
   let startValue;
   let endValue;

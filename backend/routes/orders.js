@@ -68,8 +68,6 @@ router.get('/:id', (req, res)=>{
 router.post('/new', (req, res)=> {
   //we always add a body to post
   let {userId, products} = req.body;
-  console.log(userId);
-  console.log(products);
   if(userId !== null && userId > 0){
     database.table('orders')
     .insert({

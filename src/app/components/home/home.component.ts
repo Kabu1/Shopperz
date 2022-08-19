@@ -24,7 +24,6 @@ products: ProductModelServer[] = [];
 
   ngOnInit(): void {
     this.productService.getAllProducts(12).subscribe((prods: ServerResponse) =>{
-      console.log('products', this.products);
       this.products = prods.products;
     })
   }

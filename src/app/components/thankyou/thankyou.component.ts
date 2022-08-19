@@ -17,7 +17,6 @@ export class ThankyouComponent implements OnInit {
     private orderService: OrderService
   ) {
     const navigation = this.router.getCurrentNavigation();
-    console.log('check the navigation',navigation?.extras.state);
     const state = navigation?.extras.state as {
       message: string,
       products: ProductResponseModel[],

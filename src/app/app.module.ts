@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {MatCardModule} from '@angular/material/card';
+
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-b
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatCardModule
+
 
 
   ],
