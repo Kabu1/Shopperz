@@ -7,7 +7,8 @@ const {database} = require('../config/helpers')
 /* Get All Products*/
 router.get('/', function(req, res) {
   let page = (req.query.page != undefined && req.query.page != 0) ? req.query.page : 1; //set the current page number
-  const limit = (req.query.limit != undefined && req.query.limit != 0)? req.query.limit: 10; //set the limit of items per page
+  const limit = (req.query.limit != undefined && req.query.limit != 0)? req.query.limit: 12; //set the limit of items per page
+  console.log('check the limit', limit);
 
   let startValue;
   let endValue;
@@ -17,7 +18,7 @@ router.get('/', function(req, res) {
     endValue = page * limit;
   } else{
     startValue = 0;
-    endValue = 10;
+    endValue = 12;
   }
   database.table('products as p')
     .join([{
@@ -82,7 +83,7 @@ router.get('/:prodId', (req, res)=> {
   //Get all products for one particular category
 router.get('/category/:catName', (req, res) =>{
   let page = (req.query.page != undefined && req.query.page != 0) ? req.query.page : 1; //set the current page number
-  const limit = (req.query.limit != undefined && req.query.limit != 0)? req.query.limit: 10; //set the limit of items per page
+  const limit = (req.query.limit != undefined && req.query.limit != 0)? req.query.limit: 12; //set the limit of items per page
 
   let startValue;
   let endValue;
@@ -92,7 +93,7 @@ router.get('/category/:catName', (req, res) =>{
     endValue = page * limit;
   } else{
     startValue = 0;
-    endValue = 10;
+    endValue = 12;
   }
   //fetch category name from the Url
   const cat_title = req.params.catName;

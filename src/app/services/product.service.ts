@@ -18,9 +18,10 @@ export class ProductService {
   ) { }
 
   //fetch all products from backend
-  getAllProducts(productsFetched = 10):Observable<ServerResponse>{
+  getAllProducts(productsFetched = 12):Observable<ServerResponse>{
     return this.http.get<ServerResponse>(this.serverUrl + '/products', {
       params: {
+
         limit: productsFetched.toString()
       }
     });
